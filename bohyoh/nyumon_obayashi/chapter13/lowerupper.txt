@@ -1,0 +1,2 @@
+JavaScript is a script language that is generally used in browser environment.
+Java is a compiler language that supports object-oriented.

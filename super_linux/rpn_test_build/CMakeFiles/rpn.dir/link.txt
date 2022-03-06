@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/rpn.dir/rpn_test.c.o CMakeFiles/rpn.dir/expression_parse.c.o CMakeFiles/rpn.dir/stack.c.o CMakeFiles/rpn.dir/linkedlist.c.o  -o rpn 

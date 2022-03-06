@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tomoharu/myc/super_linux/rpn_test/expression_parse.h
+
+/home/tomoharu/myc/super_linux/rpn_test/rpn_test.c
+stdio.h
+-
+stdlib.h
+-
+expression_parse.h
+/home/tomoharu/myc/super_linux/rpn_test/expression_parse.h
+

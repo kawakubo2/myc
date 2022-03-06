@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/array_queue.dir/array_queue_test.c.o CMakeFiles/array_queue.dir/array_queue.c.o  -o array_queue 

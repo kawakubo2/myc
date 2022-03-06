@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int gcd(int n1, int n2)
+{
+    int temp;
+    if (n2 > n1) {
+        temp = n1;
+        n1 = n2;
+        n2 = temp;
+    }
+    if (n1 % n2 == 0) {
+        return n2;
+    }
+    return gcd(n2, n1 % n2);
+}
+
+int main(void)
+{
+    int a, b;
+    puts("最大公約数を求めます");
+    printf("整数1 : ");
+    scanf("%d", &a);
+    printf("整数2 : ");
+    scanf("%d", &b);
+
+    printf("%dと%dの最大公約数は%dです。\n", a, b, gcd(a, b));
+
+    return 0;
+}

@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tomoharu/myc/super_linux/stack/collections.h
+
+/home/tomoharu/myc/super_linux/stack/linkedlist.h
+collections.h
+/home/tomoharu/myc/super_linux/stack/collections.h
+
+/home/tomoharu/myc/super_linux/stack/stack.h
+linkedlist.h
+/home/tomoharu/myc/super_linux/stack/linkedlist.h
+
+/home/tomoharu/myc/super_linux/stack/stack_test1.c
+stdio.h
+-
+stdlib.h
+-
+stack.h
+/home/tomoharu/myc/super_linux/stack/stack.h
+

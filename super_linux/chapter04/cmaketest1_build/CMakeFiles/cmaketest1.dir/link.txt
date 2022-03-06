@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/cmaketest1.dir/list0431main.c.o CMakeFiles/cmaketest1.dir/list0431A.c.o CMakeFiles/cmaketest1.dir/list0431B.c.o  -o cmaketest1 

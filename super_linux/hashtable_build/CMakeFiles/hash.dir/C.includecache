@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tomoharu/myc/super_linux/hashtable/collections.h
+
+/home/tomoharu/myc/super_linux/hashtable/hashtable.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+hashtable.h
+/home/tomoharu/myc/super_linux/hashtable/hashtable.h
+
+/home/tomoharu/myc/super_linux/hashtable/hashtable.h
+collections.h
+/home/tomoharu/myc/super_linux/hashtable/collections.h
+

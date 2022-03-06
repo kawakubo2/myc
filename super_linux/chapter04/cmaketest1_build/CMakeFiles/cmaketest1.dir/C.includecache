@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tomoharu/myc/super_linux/chapter04/cmaketest1/list0431A.c
+stdio.h
+-
+
+/home/tomoharu/myc/super_linux/chapter04/cmaketest1/list0431A.h
+
+/home/tomoharu/myc/super_linux/chapter04/cmaketest1/list0431B.c
+stdio.h
+-
+
+/home/tomoharu/myc/super_linux/chapter04/cmaketest1/list0431B.h
+
+/home/tomoharu/myc/super_linux/chapter04/cmaketest1/list0431main.c
+list0431A.h
+/home/tomoharu/myc/super_linux/chapter04/cmaketest1/list0431A.h
+list0431B.h
+/home/tomoharu/myc/super_linux/chapter04/cmaketest1/list0431B.h
+
