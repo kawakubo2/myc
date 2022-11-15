@@ -1,0 +1,3 @@
+hello, c language.
+i live in fukuoka city.
+c++ language is very very crazy for me.
