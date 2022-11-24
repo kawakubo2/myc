@@ -1,5 +1,14 @@
 #include <stdio.h>
-
+void print_tensu(int n, int m, const int tensu[n][m])
+{
+    int i, j;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            printf("%4d", tensu[i][j]);
+        }
+        putchar('\n');
+    }
+}
 int main(void)
 {
     int i, j;
@@ -26,26 +35,11 @@ int main(void)
         putchar('\n');
     }
     puts("1回目の点数");
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < 3; j++) {
-            printf("%4d", tensu1[i][j]);
-        }
-        putchar('\n');
-    }
+    print_tensu(4, 3, tensu1);
     puts("2回目の点数");
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < 3; j++) {
-            printf("%4d", tensu2[i][j]);
-        }
-        putchar('\n');
-    }
+    print_tensu(4, 3, tensu2);
     puts("合計点");
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < 3; j++) {
-            printf("%4d", sum[i][j]);
-        }
-        putchar('\n');
-    }
+    print_tensu(4, 3, sum);
 
     return 0;
 }
