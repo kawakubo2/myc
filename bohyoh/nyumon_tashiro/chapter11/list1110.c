@@ -34,9 +34,9 @@ int main(void)
     printf("文字列1: "); fscanf(stdin, "%s", s1);
     printf("文字列2: "); fscanf(stdin, "%s", s2);
 
-    char *r = strcat(s1, s2);
+    char *r1= strcat(s1, s2);
 
-    printf("%s\n", r);
+    printf("%s\n", r1);
 
     return 0;
 }
