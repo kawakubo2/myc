@@ -1,32 +1,31 @@
 #include <stdio.h>
 
-int str_chnum(const char *s, int c)
+char *str_chr(const char *s, int c)
 {
-    int cnt = 0;
     while(*s) {
         if (*s == c) {
-            cnt++;
+            return s;
         }
         s++;
     }
-    return cnt;
+    return NULL;
 }
 
 int main(void)
 {
     char str[128];
     char target[10];
-    char ch;
+    char c;
     printf("文字列: ");
     fscanf(stdin, "%s", str);
     printf("文字: ");
-    // getchar();
-    // fscanf(stdin, "%c", &ch);
     fscanf(stdin, "%s", target);
-    ch = target[0];
-    int count = str_chnum(str, ch);
+    c = target[0];
 
-    printf("%sの中に%cは%d個あります。\n", str, ch, count);
+    char *result = str_chr(str, c);
+    if (*result) {
+        printf("%s\n", result);
+    }
 
     return 0;
 }
