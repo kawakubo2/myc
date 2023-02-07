@@ -1,16 +1,19 @@
 #include <stdio.h>
+#include "mystdio.h"
 
 char *scan_char(char *p, char c);
+void get_line(char *buffer, int size);
 int main(void);
 
 int main(void)
 {
     char str[255];
     char target;
-    printf("検索文字: ");
-    target = getchar();
     printf("文字列: ");
-    fscanf(stdin, "%s", str);
+    get_line(str, 255);
+    printf("検索文字: ");
+    get_line(str, 255);
+    target = str[0];
     char *pt = scan_char(str, target);
     if (pt != NULL) {
         printf("%cは%sに存在し、アドレスは%pです。\n", target, str, pt);
@@ -23,7 +26,6 @@ int main(void)
 
 char *scan_char(char *p, char c)
 {
-    char *result = p;
     while (*p) {
         if (*p == c) {
             return p;
@@ -31,19 +33,4 @@ char *scan_char(char *p, char c)
         p++;
     }
     return NULL;
-}
-
-void get_line(char *buffer, int size)
-{
-    if (fgets(buffer, size, stdin) == NULL) {
-        buffer[0] = '\0';
-        return;
-    }
-
-    for (int i = 0; i < size; i++) {
-        if (buffer[i] == '\n') {
-            buffer[i] = '\0';
-            return;
-        }
-    }
 }
