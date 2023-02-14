@@ -8,7 +8,7 @@ int main(void)
     char filename[FILENAME_MAX];
     
     printf("ファイルを表示するプログラム\n");
-    printf("ファイル名を入力してください。\n");
+    printf("ファイル名を入力してください。(%d文字まで)\n", FILENAME_MAX);
     get_line(filename, FILENAME_MAX);
 
     FILE *fp = fopen(filename, "r");

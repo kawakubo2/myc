@@ -10,7 +10,8 @@ int factorial(int n)
 
 int combination(int n, int r)
 {
-    return combination(n - 1, r - 1) + combination(n - 1, 1);
+    if (n == r || r == 0) return 1;
+    return combination(n - 1, r - 1) + combination(n - 1, r);
 }
 
 int main(void)
