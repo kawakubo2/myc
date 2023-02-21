@@ -1,0 +1,41 @@
+#INCLUDE <STDIO.H>
+#INCLUDE <STRING.H>
+#INCLUDE <CTYPE.H>
+
+INT MAIN(VOID)
+{
+    INT CH;
+    FILE *SFP;
+    FILE *DFP;
+    CHAR SNAME[FILENAME_MAX];
+    CHAR DNAME[FILENAME_MAX];
+
+    PRINTF("コピー元ファイル名: "); FSCANF(STDIN, "%S", SNAME);
+    PRINTF("コピー先ファイル名: "); FSCANF(STDIN, "%S", DNAME);
+    IF (STRCMP(SNAME, DNAME) == 0) {
+        PRINTF("コピー先とコピー先のファイル名が同じです。ファイルの中身が削除されるので、処理を中止します。\N");
+        RETURN -1;
+    }
+
+    IF ((SFP = FOPEN(SNAME, "R")) == NULL) {
+        PRINTF("コピー元ファイルをオープンできません。\N");
+        RETURN -1;
+    }
+    IF ((DFP = FOPEN(DNAME, "W")) == NULL) {
+        PRINTF("コピー先ファイルをオープンできません。\N");
+        RETURN -1;
+    }
+    WHILE ((CH = FGETC(SFP)) != EOF) {
+        FPUTC(TOUPPER(CH), DFP);
+    }
+    IF (FCLOSE(SFP)) {
+        PRINTF("コピー元のファイルのクローズでエラーが発生しました。\N");
+        FCLOSE(DFP);
+        RETURN -1;
+    }
+    IF (FCLOSE(DFP)) {
+        PRINTF("コピーのファイルのクローズでエラーが発生しました。\N");
+        RETURN -1;
+    }
+    RETURN 0;
+}
