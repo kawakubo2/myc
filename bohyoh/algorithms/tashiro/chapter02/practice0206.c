@@ -9,11 +9,12 @@ int card_convr(unsigned x, int n, char d[])
         d[digits++] = dchar[0];
     } else {
         while (x) {
-            for (i = 1; i < digits; i++) {
+            for (i = digits; i > 0; i--) {
                 d[i] = d[i - 1];
             }
             d[0] = dchar[x % n];
             x /= n;
+            digits++;
         }
     }
     return digits;
