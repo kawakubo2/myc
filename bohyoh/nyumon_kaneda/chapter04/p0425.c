@@ -9,13 +9,17 @@ int main(void)
 
     for (int i = 1; i <= dansu; i++) {
         // 空白
-        for (int j = 1; j <= dansu - i; j++) {
+        for (int j = 1; j <= i - 1; j++) {
             putchar('-');
         }
-        for (int j = 1; j <= i * 2 - 1; j++) {
-            putchar('*');
+        /*
+            dansu * 2 - 1 ---> 一番上の段の個数
+            (i - 1) * 2   ---> 二段目以降から2個ずつ減らす
+        */
+        for (int j = 1; j <= (dansu * 2 - 1) - ((i - 1) * 2); j++) {
+            printf("%d", i % 10);
         }
-        for (int j = 1; j <= dansu - i; j++) {
+        for (int j = 1; j <= i - 1; j++) {
             putchar('-');
         }
         putchar('\n');
