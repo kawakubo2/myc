@@ -7,7 +7,12 @@ int search(int a[], int n, int key)
     a[n] = key;
     printf("   |");
     for (i = 0; i < n; i++) {
-        printf("%3d", i);
+        printf("%4d", i);
+    }
+    putchar('\n');
+    printf("---+");
+    for (i = 0; i < n; i++) {
+        printf("----");
     }
     putchar('\n');
     i = 0;
@@ -15,13 +20,14 @@ int search(int a[], int n, int key)
         printf("   |");
         for (int j = 0; j < n; j++) {
             if (i == j) {
-                printf("  *");
+                printf("   *");
             }
-            printf("   ");
+            printf("    ");
         }
+        putchar('\n');
         printf("%3d|", i);
         for (int j = 0; j < n; j++) {
-            printf("%3d", a[i]);
+            printf("%4d", a[j]);
         }
         putchar('\n');
         if (a[i] == key) {
