@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Member.h"
 #include "ChainHash.h"
 
 /*--- ハッシュ関数(keyのハッシュ値を返す)*/
-static int hash(int key, int size)
+static int hash(const char *key, int size)
 {
-    return key % size;
+    return (int)(key[0]) % size;
 }
 
 /*--- ノードの各メンバに値を設定---*/
@@ -28,10 +29,10 @@ int Initialize(ChainHash *h, int size) {
 }
 
 Node *Search(const ChainHash *h, const Member *x) {
-    int key = hash(x->no, h->size);
+    int key = hash(x->name, h->size);
     Node *p = h->table[key];
     while (p != NULL) {
-        if (p->data.no == x->no) {
+        if (strcmp(p->data.name, x->name) == 0) {
             return p;
         }
         p = p->next;
@@ -41,11 +42,11 @@ Node *Search(const ChainHash *h, const Member *x) {
 
 int Add(ChainHash *h, const Member *x)
 {
-    int key = hash(x->no, h->size);
+    int key = hash(x->name, h->size);
     Node *p = h->table[key];
     Node *temp;
     while (p != NULL) {
-        if (p->data.no == x->no) {
+        if (strcmp(p->data.name, x->name) == 0) {
             return 1;
         }
         p = p->next;
@@ -61,11 +62,11 @@ int Add(ChainHash *h, const Member *x)
 
 int Remove(ChainHash *h, const Member *x)
 {
-    int key = hash(x->no, h->size);
+    int key = hash(x->name, h->size);
     Node *p = h->table[key];
     Node **pp = &h->table[key];
     while (p != NULL) {
-        if (p->data.no == x->no) {
+        if (strcmp(p->data.name, x->name) == 0)  {
             *pp = p->next;
             free(p);
             return 0;
@@ -83,7 +84,7 @@ void Dump(const ChainHash *h)
         Node *p = h->table[i];
         printf("%02d  ", i);
         while (p != NULL) {
-            printf("---> %d (%s)   ", p->data.no, p->data.name);
+            printf("---> %s (%d)   ", p->data.name, p->data.no);
             p = p->next;
         }
     putchar('\n');
