@@ -36,8 +36,8 @@ int main(void)
         sugaku_total += score[i][SUGAKU];
         printf("%4d %4d %4d %4.1f\n", score[i][KOKUGO], score[i][SUGAKU], student_total, (double)student_total / 2);       
     }
-    printf("%4d %4d\n", kokugo_total, sugaku_total);
-    printf("%4.1f %4.1f\n",  (double)kokugo_total / NUMBER, (double)sugaku_total / NUMBER);
+    printf("%4d %4d <- 合計\n", kokugo_total, sugaku_total);
+    printf("%4.1f %6.1f <- 平均\n",  (double)kokugo_total / NUMBER, (double)sugaku_total / NUMBER);
 
     return 0;
 }
