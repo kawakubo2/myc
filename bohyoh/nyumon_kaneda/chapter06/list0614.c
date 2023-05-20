@@ -3,24 +3,23 @@
 #define NUMBER 5
 #define FAILED -1
 
-int search(const int v[], int key, int n)
+int search(int v[], int key, int n)
 {
     int i = 0;
+    v[n] = key;
     while (1) {
-        if (i == n) {
-            return FAILED;
-        }
         if (v[i] == key) {
-            return i;
+            break;
         }
         i++;
     }
+    return i < n ? i : FAILED;
 }
 
 int main(void)
 {
     int ky, idx;
-    int x[NUMBER];
+    int x[NUMBER + 1];
 
     for (int i = 0; i < NUMBER; i++) {
         printf("x[%d]: ", i);
