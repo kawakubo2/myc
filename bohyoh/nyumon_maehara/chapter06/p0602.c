@@ -14,6 +14,7 @@ int main(void)
     printf("整数1: "); fscanf(stdin, "%d", &x);
     printf("整数2: "); fscanf(stdin, "%d", &y);
     printf("整数3: "); fscanf(stdin, "%d", &z);
+
     printf("最小値は%dです。\n", min3(x, y, z));
 
     return 0;
