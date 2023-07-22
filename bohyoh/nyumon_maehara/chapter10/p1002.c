@@ -5,15 +5,22 @@ static int last_days[][13] = {
     { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
 };
 
+// char wod[][3] = {"", "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
+char *dow[] = {"日", "月", "火", "水", "木", "金", "土"};
+
 int is_leap_year(int year) 
 {
     return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
 }
 
+/*
+TODO 曜日が正常に表示されない。年をまたぐと同じ曜日になる。
 int day_of_week(int year, int month, int day)
 {
-    return (day + (26 * (month + 1) / 10) + year + (year / 4) - 2 * (year / 100) + year / 400) % 7;
+    // return (365 * year + year / 4 - year / 100 + year / 400 + 306 * (month + 1) / 10 + day - 428) % 7;
+    return (year + year / 4 - year / 100 + year / 400 + (month * 13 + 8) / 5 + day) % 7;
 }
+*/
 
 void decrement_date(int *year, int *month, int *day)
 {
@@ -33,7 +40,7 @@ void decrement_date(int *year, int *month, int *day)
 
 void increment_date(int *year, int *month, int *day)
 {
-    if (last_days[is_leap_year(*year)][*month] == *day) {
+    if (*day == last_days[is_leap_year(*year)][*month]) {
         if (*month == 12) {
             *year += 1;
             *month = 1;
@@ -49,23 +56,24 @@ void increment_date(int *year, int *month, int *day)
 
 int main(void)
 {
-    puts("increment_dateテスト");
-    int year = 2023;
+    puts("---< increment_dateテスト >---");
+    int year = 2020;
     int month = 12;
-    int day = 31;
-    for (int i = 0; i < 367; i++) {
+    int day = 30;
+    for (int i = 0; i < 368; i++) {
         increment_date(&year, &month, &day);
         printf("%4d-%02d-%02d\n", year, month, day);
     }
 
-    puts("\n\ndecrement_dateテスト");
+    puts("\n\n---< decrement_dateテスト >---");
     year = 2025;
     month = 1;
-    day = 1;
-    for (int i = 0; i < 367; i++) {
+    day = 2;
+    for (int i = 0; i < 368; i++) {
         decrement_date(&year, &month, &day);
         printf("%4d-%02d-%02d\n", year, month, day);
     }
+
     return 0;
 }
 
