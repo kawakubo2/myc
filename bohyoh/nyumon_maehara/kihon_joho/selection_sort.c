@@ -4,8 +4,7 @@ void selection_sort(int nums[], int size)
 {
     for (int i = 0; i < size - 1; i++) {
         int min = i;
-        // jは(i + 1)空ではなくiから始めないといけない
-        for (int j = i; j < size; j++) {
+        for (int j = i + 1; j < size; j++) {
             if (nums[min] > nums[j]) {
                 min = j;
             }
