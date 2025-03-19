@@ -13,5 +13,6 @@ echo -e "" >> $1
 echo "int main(void)" >> $1
 echo "{" >> $1
 echo -e "" >> $1
+echo "  return 0;" >> $1
 echo "}" >> $1
 echo -e "" >> $1
