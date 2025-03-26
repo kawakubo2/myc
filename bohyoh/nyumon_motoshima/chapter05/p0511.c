@@ -17,15 +17,19 @@ int main(void)
   puts("国語 数学 合計  平均");
   puts("--------------------");
   for (int i = 0; i < 6; i++) {
-    printf("%4d", score[i][0]);
+    // 科目ごとの合計を計算
     sum_nat += score[i][0];
-    printf(" %4d", score[i][1]);
     sum_math += score[i][1];
+    // 生徒の国語、英語、合計、平均を表示
+    printf("%4d", score[i][0]);
+    printf(" %4d", score[i][1]);
     printf(" %4d", score[i][0] + score[i][1]);
     printf(" %5.1f", (double)(score[i][0] + score[i][1]) / 2);
     putchar('\n');
   }
   puts("--------------------");
+
+  // 科目ごとの合計と平均を表示
   printf("%4d", sum_nat);
   printf(" %4d", sum_math);
   printf(" [科目合計]");
