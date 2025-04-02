@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #define NUMBER 7
+#define FAILED -1
 
 int search_idx(const int v[], int idx[], int key, int n)
 {
@@ -10,7 +11,7 @@ int search_idx(const int v[], int idx[], int key, int n)
       idx[count++] = i;
     }
   }
-  return count;
+  return count > 0 ? count : FAILED;
 }
 
 void print_array(const int v[], int n)
@@ -24,11 +25,14 @@ void print_array(const int v[], int n)
 
 int main(void)
 {
+  int key = 7;
   int v[] = {1, 7, 5, 7, 2, 4, 7};
   int idx[NUMBER];
-  int c = search_idx(v, idx, 7, NUMBER);
-  for (int i = 0; i < c; i++) {
-    printf("%d ", idx[i]);
+  int c = search_idx(v, idx, key, NUMBER);
+  if (c != FAILED) {
+    print_array(idx, c);
+  } else {
+    printf("%dは配列内に存在しません。\n", key);
   }
   return 0;
 }
