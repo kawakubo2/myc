@@ -32,16 +32,28 @@ unsigned power(unsigned n, unsigned p)
   return result;
 }
 
-unsigned rrotate(unsinged x, int n)
+// unsigned rrotate(unsigned x, int n)
+// {
+//   int r = n % int_bits();
+//   for (int i = 0; i < r; i++) {
+//     unsigned lowest = x & 1U;
+//     x >>= 1;
+//     lowest <<= int_bits() - 1;
+//     x |= lowest;
+//   }
+//   return x;
+// }
+
+unsigned rrotate(unsigned x, int n)
 {
   int r = n % int_bits();
-  for (int i = 0; i < r; i++) {
-    unsigned lowest = x & 1U;
-    r >>= 1;
-    lowest <<= int_bits() - 1;
-    r |= lowest;
-  }
-  
+  return x >> r | x << int_bits() - r;
+}
+
+unsigned lrotate(unsigned x, int n)
+{
+  int r = n % int_bits();
+  return x << r | x >> int_bits() - r;
 }
 
 int main(void)
@@ -53,14 +65,13 @@ int main(void)
 
   putchar('\n');
   printf("整数    = "); print_bits(x);      putchar('\n');
-  printf("左%dビットシフト\n", n);
-  printf("(%u << %u) == (%d * power(2, %u)): %d\n", x, n, x, n, x << n == x *  power(2, n));
-  printf("%d == %d\n", x << n, x * power(2, n));
+  printf("右%dビット回転\n", n % int_bits());
+  unsigned r = rrotate(x, n);
+  printf("回転後  = "); print_bits(r);      putchar('\n');
 
-  printf("右%dビットシフト\n", n);
-  printf("(%u >> %u) == (%d / power(2, %u)): %d\n", x, n, x, n, x >> n == x /  power(2, n));
-  printf("%d == %d\n", x >> n, x / power(2, n));
-
+  printf("左%dビット回転\n", n % int_bits());
+  unsigned l = lrotate(x, n);
+  printf("回転後  = "); print_bits(l);      putchar('\n');
 
   return 0;
 }
