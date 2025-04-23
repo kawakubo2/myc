@@ -1,33 +1,23 @@
 #include <stdio.h>
 
-#define NUMBER 100
-
-int isTerminated(char s[128])
+void put_stringn(const char s[], int n)
 {
-  for (int i = 0; i < 5; i++) {
-    if (s[i] != '$') return 0;
+  for (int i = 0; i < n; i++) {
+    printf("%s", s);
   }
-  if (s[5] == '\0') return 1;
-  return 0;
+  putchar('\n');
 }
-
 
 int main(void)
 {
-  char s[NUMBER][128];
+  char str[128];
+  int n;
+  printf("文字列: "); scanf("%s", str);
+  getchar();
 
-  puts("--- 文字列の入力 ---");
-  for (int i = 0; i < NUMBER; i++) {
-    printf("s[%d]: ", i);
-    scanf("%s", s[i]);
-    if (isTerminated(s[i])) break;
-  }
+  printf("繰り返し回数: "); scanf("%d", &n);
 
-  puts("--- 文字列の表示 ---");
-  for (int i = 0; i < NUMBER; i++) {
-    if (isTerminated(s[i])) break;
-    printf("s[%d] = \"%s\"\n", i, s[i]);
-  }
+  put_stringn(str, n);
 
   return 0;
 }
