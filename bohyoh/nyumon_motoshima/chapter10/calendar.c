@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int is_leap(int year)
 {
@@ -58,35 +59,79 @@ void increment_date(int *y, int *m, int *d)
   }
 }
 
-void print_month(int y, int m, int d)
+void decrement_date(int *y, int *m, int *d)
 {
-  int last_day = get_last_day(y, m);
-  for (int i = 1; i <= last_day; i++) {
-    
+  if (*m == 1) {
+    if (*d == 1) {
+      (*y)--;
+      *m = 12;
+      *d = 31;
+    } else {
+      (*d)--;
+    }
+  } else {
+    if (*d == 1) {
+      (*m)--;
+      *d = get_last_day(*y, *m);
+    } else {
+      (*d)--;
+    }
   }
 }
 
-// void decrement_date(int *y, int *m, int *d)
-// {
-//   ;
-// }
-
-int main(void)
+/* calendar */
+void print_header(int y, int m)
 {
-//  int year, month, day;
-//  printf("日付(例1998-02-05) : ");
-//  scanf("%d-%d-%d", &year, &month, &day);
-  int year = 2024;
-  int month = 12;
-  int day = 31;
-
-  printf("%d-%02d-%02d\n", year, month, day);
-  for (int i = 0; i < 367; i++) {
-    increment_date(&year, &month, &day);
-    printf("%d-%02d-%02d\n", year, month, day);
+  printf("       %d年%d月\n", y, m);
+  char *wod[10] = {"日", "月", "火", "水", "木", "金", "土"};
+  for (int i = 0; i < 7; i++) {
+    printf(" %s", wod[i]);
   }
+  putchar('\n');
+}
 
-  // printf("月末は%d-%2d-%2d\n", year, month, get_last_day(year, month));
+void fill_space_first_week(int y, int m, int d)
+{
+  int index = get_day_of_week(y, m, d);
+  for (int i = 0; i < index; i++) {
+    printf("%s", "   ");
+  }
+}
+
+void print_body(int y, int m)
+{
+  fill_space_first_week(y, m, 1);
+  int prev = m;
+  int d = 1;
+  while (m == prev) {
+    printf("%3d", d);
+    if (get_day_of_week(y, m, d) == 6) {
+      putchar('\n');
+    }
+    increment_date(&y, &m, &d);
+  }
+  putchar('\n');
+
+}
+
+void print_month(int y, int m)
+{
+  print_header(y, m);
+  print_body(y, m);
+}
+
+int main(int argc, char *argv[])
+{
+   if (argc != 3) {
+    puts("年月を半角空白区切りで入力してください。");
+    puts("使用法:calendar <month> <year>");
+    puts("使用例:calendar 8 2025");
+    return 1;
+   }
+
+   int month = atoi(argv[1]);
+   int year  = atoi(argv[2]);
+   print_month(year, month);
 
   return 0;
 }
