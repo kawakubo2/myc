@@ -27,6 +27,7 @@ void print_array(int v[], int n)
 int main(void)
 {
   int heights[] = { 179, 163, 175, 178, 173};
+
   puts("--- ソート前 ---");
   print_array(heights, NUMBER);
   bubble_sort(heights, NUMBER);
