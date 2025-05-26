@@ -64,7 +64,6 @@ double myatof(const char *s)
         s++;
     }
     if (*s == '.') {
-        puts("小数部");
         s++;
         int f = 1;
         while(*s) {
