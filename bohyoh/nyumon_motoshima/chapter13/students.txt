@@ -1,0 +1,5 @@
+Yamada 180.0 80.3
+Yokoyama 165.5 72.0
+Tanaka 181.5 92.5
+Yamamoto 160.0 58.0
+Suzuki 172.0 68.5
