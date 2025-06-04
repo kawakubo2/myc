@@ -1,8 +1,13 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
     char s[] = "187359271864928719170100716553";
+
+    int n = sizeof(s) / sizeof(s[0]);
+    printf("文字数(sizeof): %d\n", n);
+    printf("文字数(strlen): %ld\n", strlen(s));
 
     int count0 = 0;
     int count1 = 0;
