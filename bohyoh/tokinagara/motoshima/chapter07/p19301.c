@@ -95,7 +95,7 @@ int main(void)
 
   printf("LSBof(&n)     = %d\n", LSBof(&n));
   printf("Bitof(&n, 3)  = %d\n", Bitof(&n, 3));
-  printf("Bitof(&n, 3)  = %d\n", Bitof(&n, 4));
+  printf("Bitof(&n, 4)  = %d\n", Bitof(&n, 4));
 
 
   return 0;
